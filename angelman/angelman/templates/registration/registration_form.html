@@ -58,7 +58,6 @@
     
     <script type="text/javascript">
         $(document).ready(function() {
-	    console.log("mobile = " + mobile.toString());
             //$("#id_password1").passStrengthify();
             $("#registration-submit").prop("disabled", true);
             var state_lookup_url = "{% url 'v1:state_lookup' 'XX' %}";
@@ -89,7 +88,6 @@
             $("#id_parent_guardian_date_of_birth").datepicker(dateOptions);
             
             $("#parent_guardian_check1").click(function() {
-	        console.log("pg check 1");
                 $("#parent_guardian_form").hide();
                 $("#patient_form").show();
                 $("#parent_guardian_form_btn").hide();
@@ -97,7 +95,6 @@
                 $("#id_self_patient").val(false);
             });
             $("#parent_guardian_check2").click(function() {
-	        console.log("pg check 2");
                 $("#parent_guardian_form").show();
                 $("#patient_form").hide();
                 $("#parent_guardian_form_btn").show();
@@ -106,7 +103,6 @@
                 $("#id_self_patient").val(false);
             });
             $("#parent_guardian_check3").click(function() {
-	        console.log("pg check 3");
                 $("#parent_guardian_form").show();
                 $("#patient_form").hide();
                 $("#parent_guardian_form_btn").show();
@@ -126,13 +122,6 @@
                 $("#parent_guardian_form").show();
             });
             
-            $.get("{% url 'v1:clinician-list' registry_code %}", function(data) {
-                clinician_drop = $("#id_clinician");
-                $.each(data, function(i, item){
-                    clinician_drop.append($('<option>', { value : item.id }).text(item.full_name)); 
-                });
-                clinician_drop.append($('<option>', { value : 'clinician-other' }).text('Other - not listed'));
-            });
             $("#registration-submit").click(function() {
                 var registration_form = $("#registration-form");
                 $("#id_email").val($("#id_username").val());
@@ -147,13 +136,7 @@
                     });
                 }
             });
-            $('#id_clinician').change(function() {
-                if($('#id_clinician option:selected').val() == 'clinician-other') {
-                    $("#form-other-clinician").show("blind");
-                } else {
-                    $("#form-other-clinician").hide("blind");
-                }
-            });
+
             $("#id_country").change(function() {
                 var states = $("#id_state");
                 states.empty();

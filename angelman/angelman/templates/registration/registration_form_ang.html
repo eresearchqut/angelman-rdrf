@@ -39,22 +39,7 @@
                 }
             }
         });
-        
-        $("#id_username").focusout(function() {
-            var url = "{% url 'lookup_username' 'replace-me@domain.com' %}";
-            url = url.replace("replace-me@domain.com", $(this).val());
-            
-            $.getJSON(url, function(data) {
-                if (data.existing == true) {
-                    $("#username-error").show("fast");
-                    $("#registration-submit").hide();
-                } else {
-                    $("#username-error").hide("fast");
-                    $("#registration-submit").show();
-                }
-            });
-        });
-        
+
         $("#same_address").on("click", function() {
             var self = this;
             $("#patient-address-div").slideToggle("fast", function() {
@@ -74,7 +59,6 @@
             },
             gettext("Please enter a date in the format yyyy-mm-dd")
         );
-
 
         $.validator.addMethod("validdate", function (value) {
             var m = value.match(/\s*(\d{4})-(\d{1,2})-(\d{1,2})\s*/);

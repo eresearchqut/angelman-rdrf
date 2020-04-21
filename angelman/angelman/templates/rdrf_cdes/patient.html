@@ -22,15 +22,6 @@
                     "html": true
                 });
                 
-                $.get("{% url 'v1:clinician-list' registry_code %}", function(data) {
-                    clinician_drop = $("#id_clinician");
-                    $.each(data, function(i, item){
-                        clinician_drop.append($('<option>', { value : item.id }).text(item.full_name)); 
-                    });
-//                    clinician_drop.append($('<option>', { value : 'clinician-other' }).text('Other - not listed'));
-                }).done(function() {
-                    clinician_drop.val('{{clinician_selection}}');
-                });
                 
                 $('#id_clinician').change(function() {
                     if ($(this).val() != -1) {
@@ -57,10 +48,6 @@
                         }).fail(function() {
                             console.log("error");
                         });
-//                    } if($('#id_clinician option:selected').val() == 'clinician-other') {
-//                        $("#form-other-clinician").show("blind");
-//                    } else {
-//                        $("#form-other-clinician").hide("blind");
                     }
                 });
             });

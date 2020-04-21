@@ -165,22 +165,7 @@
                 }
             }
         });
-        
-        $("#id_username").focusout(function() {
-            var url = "{% url 'lookup_username' 'replace-me@domain.com' %}";
-            url = url.replace("replace-me@domain.com", $(this).val());
-            
-            $.getJSON(url, function(data) {
-                if (data.existing == true) {
-                    $("#username-error").show("fast");
-                    $("#registration-submit").hide();
-                } else {
-                    $("#username-error").hide("fast");
-                    $("#registration-submit").show();
-                }
-            });
-        });
-        
+
         $.validator.addMethod(
             "dateFormat",
             function(value, element) {
