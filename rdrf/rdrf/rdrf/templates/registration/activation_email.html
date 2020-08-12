@@ -1,0 +1,5 @@
+{% load i18n %}
+
+{{ site }}{% url 'registration_activate' activation_key %}
+<br>
+{% trans 'This link will expire in' %} {{expiration_days}} {% trans 'days' %}.

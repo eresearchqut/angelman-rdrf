@@ -1,0 +1,4 @@
+sphinx
+sphinxcontrib-fulltoc
+Werkzeug==0.16.0
+python-Levenshtein

@@ -1,0 +1,15 @@
+# -*- coding: utf-8 -*-
+
+
+from django.db import migrations
+
+
+class Migration(migrations.Migration):
+
+    dependencies = [
+        ('rdrf', '0027_cdefile'),
+        ('rdrf', '0021_contextformgroup_contextformgroupitem'),
+    ]
+
+    operations = [
+    ]
